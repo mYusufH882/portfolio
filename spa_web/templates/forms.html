@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block 'content' %}
+<h1>Form projek</h1>
+
+<div class="col-md-10 col-lg-10">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form forms %}
+        <button class="btn btn-md btn-primary">Simpan</button>
+        <a href="{% url 'index' %}" class="btn btn-md btn-secondary">Kembali</a>
+    </form>
+</div>
+{% endblock %}

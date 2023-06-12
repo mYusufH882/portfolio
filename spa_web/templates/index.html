@@ -7,34 +7,22 @@
     <div class="col-md-10 col-lg-12" id="projects">
         <h1 class="text-center">Projects Me</h1>
         
+        {% bootstrap_messages %}
+
         <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for project in data %}
             <div class="col">
               <div class="card">
-                <img src="{% static 'tenaga-nuklir.jpg' %}" class="card-img-top" alt="...">
+                <!-- <img src="{% static 'tenaga-nuklir.jpg' %}" class="card-img-top" alt="..."> -->
+                <img src="{{ project.thumbnail_url }}" class="card-img-top" alt="thumb-{{project.judul}}">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <h5 class="card-title">{{project.judul}}</h5>
+                  <p class="card-text">{{project.deskripsi|truncatechars:90}}</p>
+                  <a href="{% url 'detail' project.id %}" class="btn btn-md btn-primary">Lihat Selengkapnya...</a>
                 </div>
               </div>
             </div>
-            <div class="col">
-              <div class="card">
-                <img src="{% static 'tenaga-nuklir.jpg' %}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img src="{% static 'tenaga-nuklir.jpg' %}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                </div>
-              </div>
-            </div>
+            {% endfor %}
         </div>
 
     </div>

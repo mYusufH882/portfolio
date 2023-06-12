@@ -78,8 +78,12 @@ WSGI_APPLICATION = "portfolio.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "portmedia",
+        "USER": "root",
+        "PASSWORD": "",
+        "HOST": "127.0.0.1",
+        "PORT": "3306",
     }
 }
 
@@ -128,3 +132,9 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+MEDIA_URL = "/storage/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "storage")
+
+# Tambahkan kode dibawah ini jika gambar tidak muncul
+MEDIA_HOST = "http://127.0.0.1:8000/spa"

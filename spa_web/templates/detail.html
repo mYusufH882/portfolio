@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'content' %}
+<h1>Detail {{data.judul}}</h1>
+
+<div class="row">
+    <div class="col-md-10 col-lg-12">
+        <img src="{{data.thumbnail_url}}" alt="Projek {{data.judul}}" class="w-25">
+        <p>{{data.deskripsi}}</p>
+    </div>
+
+    <div class="col-md10 col-lg-8">
+        <a href="{% url 'edit' data.id %}" class="btn btn-md btn-warning text-white">Ubah</a>
+        <a href="{% url 'hapus' data.id %}" onclick="return confirm('Apakah anda yakin ingin menghapus proyek {{data.judul}}?')" class="btn btn-md btn-danger">Hapus</a>
+    </div>
+</div>
+{% endblock %}
